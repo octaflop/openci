@@ -22,7 +22,7 @@ def main():
     try:
         shutil.rmtree('./tmp', ignore_errors=True)
         Repo.clone_from(
-            'https://github.com/testdrivenio/pycon-sample', './tmp')
+            'https://github.com/octaflop/pycon-sample', './tmp')
     except Exception as e:
         print(e)
         raise

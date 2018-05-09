@@ -67,6 +67,21 @@ services:
         constraints:
           - 'node.platform.os == linux'
 
+  hook:
+    image: python-hook:latest
+    labels:
+      function: 'true'
+      com.openfaas.scale.min: 5
+    networks:
+      - functions
+    environment:
+      no_proxy: 'gateway'
+      https_proxy: $https_proxy
+    deploy:
+      placement:
+        constraints:
+          - 'node.platform.os == linux'
+
   ping:
     image: python-ping:latest
     labels:
